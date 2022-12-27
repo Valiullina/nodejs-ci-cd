@@ -85,8 +85,7 @@ jobs:
       - name: Tag Image
         working-directory: ${{ env.app_name }}
         run: |
-          docker image tag ${{ env.app_name }}:${{ env.app_version }} ${{ env.repo_region }}-docker.pkg.dev/${{ env.project_id }}/${{ env.app_name }}/${{ env.app_name }}:${{ env.tag_new_version }}     
-
+          docker image tag ${{ env.app_name }}:${{ env.app_version }} us-central1-docker.pkg.dev/terraform-project-savard/nodejs/nodejs:latest
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
@@ -112,4 +111,5 @@ jobs:
       - name: Image push
         working-directory: ${{ env.app_name }}
         run: |
-          docker push ${{ env.repo_region }}-docker.pkg.dev/${{ env.project_id }}/${{ env.app_name }}/${{ env.app_name }}:${{ env.tag_new_version }}
+          docker push  us-central1-docker.pkg.dev/terraform-project-savard/nodejs/nodejs:latest
+          #${{ env.repo_region }}-docker.pkg.dev/${{ env.project_id }}/${{ env.app_name }}/${{ env.app_name }}:${{ env.tag_new_version }}

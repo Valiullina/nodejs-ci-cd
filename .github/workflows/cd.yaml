@@ -72,8 +72,8 @@ jobs:
       - name: Create workspace
         working-directory: "custom_helm_chart"
         run: |
-          terraform workspace  select  nodejs  ||  terraform workspace  new  nodejs
-
+          terraform workspace  select  "${{ env.app_name }}_${{ env.environment }}" ||  terraform workspace  new  "${{ env.app_name }}_${{ env.environment }}"
+    # This should work
       - id: 'auth-to-k8s'
         uses: 'google-github-actions/auth@v1'
         with:
@@ -103,4 +103,3 @@ jobs:
           -var project_id="${{ secrets.PROJECT_ID }}" \
           -var environment="${{ env.environment }}" \
           --auto-approve 
-
