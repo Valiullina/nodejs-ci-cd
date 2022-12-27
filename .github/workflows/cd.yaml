@@ -102,4 +102,6 @@ jobs:
           -var region="${{ env.region }}" \
           -var project_id="${{ secrets.PROJECT_ID }}" \
           -var environment="${{ env.environment }}" \
-          --auto-approve
+          --auto-approve 
+
+          
