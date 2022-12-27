@@ -8,7 +8,7 @@ env:
   cluster_name:       "project-cluster"
   helm_repository:    "https://github.com/farrukh90/custom_helm_chart.git"
   google_domain_name: "${{ secrets.GOOGLE_DOMAIN_NAME }}"
-  environment:        "qa"
+  environment:        "dev"
   
 name: ContinuousDeployment
 on:
@@ -72,7 +72,7 @@ jobs:
       - name: Create workspace
         working-directory: "custom_helm_chart"
         run: |
-          terraform workspace  select  dev   ||  terraform workspace  new  dev
+          terraform workspace  select  nodejs  ||  terraform workspace  new  nodejs
 
       - id: 'auth-to-k8s'
         uses: 'google-github-actions/auth@v1'
