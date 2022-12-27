@@ -46,7 +46,7 @@ jobs:
           projectBaseDir: .
           args: >
             -Dsonar.organization=savard
-            -Dsonar.projectKey=nodeja-scan-savard
+            -Dsonar.projectKey=nodejs-scan-savard
             -Dsonar.sources=./
 
       # Runs a set of commands using the runners shell
