@@ -40,6 +40,20 @@ jobs:
         run: |
           git clone ${{ env.repo }}  
 
+      - name: SonarCloud Scan
+        # if ${{ env.enable_sonar}} == "true"
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.SONAR_TOKEN }}  #SONAR_HOST_URL: sonarcloud.io 
+        with:
+          projectBaseDir: .
+          args: >
+            -Dsonar.organization=savard
+            -Dsonar.projectKey=artemis-scan-savard
+            -Dsonar.sources=./
+
+
       # - name: Setup sonarqube
       #   if: ${{env.enable_sonar == 'true'}}
       #   uses: warchant/setup-sonar-scanner@v3
